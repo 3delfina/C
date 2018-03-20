@@ -1,0 +1,35 @@
+a)
+The output periods are the following:
+The Period of function randu(), with seed 1520729275 is 536870911
+The Period of function randu(), with seed 1520729296 is 33554431
+The Period of function randu(), with seed 1520729311 is 536870911
+The Period of function randu(), with seed 1520729332 is 134217727
+
+b)
+See makefile and main.c
+
+c)
+Compare the results of the tests on the three PRNGs 
+	1) which is the best of the three?
+	2) Which is the worst? 
+	3) What features differentiate the 3 PRNGs?
+
+The Period of function randu(), with seed 1520864354 is 268435455
+The Period of function MT, with seed 1520864354 is -1
+The Period of function rand(), with seed 1520864354 is -1
+
+The Period of function randu(), with seed 1520864618 is 268435455
+The Period of function MT, with seed 1520864618 is -1
+The Period of function rand(), with seed 1520864618 is -1
+
+The Period of function randu(), with seed 1520864781 is 536870911
+The Period of function MT, with seed 1520864781 is -1
+The Period of function rand(), with seed 1520864781 is -1
+
+1) Both MT and rand() seem to be the best as brute force period test returned -1 meaning it reached max_period without finding a period. However, testing rand() with test_roulette gives results which are closer to theoretical distribution, so I would say it is better.
+
+2) randu() is the worst PNGR as for every test case the period was found.
+
+3) MT is different from randu() and rand() as when testing it with test_roulette its values differ noticeably from the theoretical distribution.
+  For randu() the period was found in all of the cases, but test_roulette produces values which are close to the  theoretical distribution.
+  For rand() the period was not found and the values were quite close to the theoretical ones.
